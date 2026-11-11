@@ -31,8 +31,10 @@ WHERE name = 'New Brighton';
 -- Hint: Filter rows where boroname = 'The Bronx'
 
 -- TODO: Write your query below
-
-
+SELECT
+    ST_Area(ST_Union(geom)) / 4046.86 AS bronx_area_acres
+FROM nyc_neighborhoods
+WHERE boroname = 'The Bronx';
 
 
 -- Exercise 3: How many census blocks in New York City DO NOT have a hole in them?
