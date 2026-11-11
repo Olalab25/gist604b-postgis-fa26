@@ -45,7 +45,13 @@ WHERE n.name = 'East Village';
 -- Hint: Filter rows where ss.routes LIKE '%7%'
 
 -- TODO: Write your query below
-
+SELECT DISTINCT
+    n.name AS neighborhood_name
+FROM nyc_subway_stations AS ss
+JOIN nyc_neighborhoods AS n
+    ON ST_Intersects(ss.geom, n.geom)
+WHERE ss.routes LIKE '%7%'
+ORDER BY neighborhood_name;
 
 
 
